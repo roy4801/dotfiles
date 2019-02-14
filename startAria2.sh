@@ -1,0 +1,1 @@
+tmux new -d -s Aria2 aria2c --enable-rpc=true --input-file=$HOME/.aria2/aria2.session --conf-path=$HOME/.aria2/aria2.conf
