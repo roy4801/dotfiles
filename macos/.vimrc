@@ -10,6 +10,9 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+" Interface
+Plugin 'powerline/powerline'
+
 " Language
 Plugin 'octol/vim-cpp-enhanced-highlight'
 
@@ -48,6 +51,10 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+" powerline config
+source ~/.vim/bundle/powerline/powerline/bindings/vim/plugin/powerline.vim
+set laststatus=2
 
 syntax on
 color sublimemonokai
