@@ -7,10 +7,12 @@
 		* zsh-syntax-highlighting
 		* powerline9k
 
-* TODO
-	* vim
-	* tmux
 
+* vim
+	* font: source code pro (powerline?)
+
+* tmux
+	* TODO
 
 ## Refs
 
@@ -21,3 +23,6 @@
 * fonts
 	* https://github.com/powerline/fonts
 	* x https://www.nerdfonts.com/#home
+
+* vim
+	* https://github.com/VundleVim/Vundle.vim
