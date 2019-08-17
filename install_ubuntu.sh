@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# Install brew
-[[ ! -e /usr/local/bin/brew ]] \
-&& /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew update && brew upgrade
-brew install git wget
+# Update apt
+sudo apt update && sudo apt upgrade -y
+
+# Install deps
+sudo apt install git wget -y
 
 # Install zsh
-brew install zsh
+sudo apt install zsh -y
 chsh -s /bin/zsh
 
 # Install oh-my-zsh
@@ -15,10 +15,13 @@ wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - 
 ## powerline9k
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 ## oh-my-zsh plugins
-brew install autojump
+sudo apt install -y autojump
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 # Fonts
-brew tap homebrew/cask-fonts
-brew cask install font-hack-nerd-font
+git clone https://github.com/ryanoasis/nerd-fonts.git nerd-fonts
+pushd nerd-fonts > /dev/null
+./install.sh
+popd > /dev/null
+
