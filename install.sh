@@ -12,7 +12,7 @@ elif [[ "$OS" == "GNU/Linux" ]]; then
 	[[ -n "`lsb_release -a 2>/dev/null | grep Ubuntu`" ]] \
 	&& . ./install_ubuntu.sh
 
-	cp -f ./.configs/ubuntu.sh ~/.config/os-specific.sh
+	cp -f ./.config/ubuntu.sh ~/.config/os-specific.sh
 fi
 
 # Copy the configs
