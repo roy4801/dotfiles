@@ -11,7 +11,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Interface
-Plugin 'powerline/powerline'
+Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 " Language
 Plugin 'octol/vim-cpp-enhanced-highlight'
@@ -52,14 +52,19 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" powerline config
-source ~/.vim/bundle/powerline/powerline/bindings/vim/plugin/powerline.vim
-set laststatus=2
+" powerline config "
+set laststatus=2 " Always display the statusline in all windows
+set showtabline=2 " Always display the tabline, even if there is only one tab
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+" 
+let g:minBufExplForceSyntaxEnable = 1
 
+" 
 syntax on
 color sublimemonokai
 set termguicolors     " True color if terminal supported
 set guifont=Source_Code_Pro_for_Powerline:h12
+set guioptions+=aiAe
 set nu ts=4 sw=4 sts=4 et ai si cin hls ru t_Co=256
 set mouse=a bs=2 ci nocp ar fencs=utf-8
 set sm mat=0
@@ -73,3 +78,7 @@ nmap <C-j> ddp
 
 " ref: https://stackoverflow.com/questions/3961859/how-to-copy-to-clipboard-in-vim
 vmap <C-c> "*y
+
+" search for visually hightlighted text
+vnoremap <c-f> y<ESC>/<c-r>"<CR>
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>

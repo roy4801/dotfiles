@@ -63,7 +63,7 @@ POWERLEVEL9K_TIME_BACKGROUND='white'
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-export UPDATE_ZSH_DAYS=3
+export UPDATE_ZSH_DAYS=1
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -72,10 +72,10 @@ export UPDATE_ZSH_DAYS=3
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -94,15 +94,34 @@ export UPDATE_ZSH_DAYS=3
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker docker-compose gitignore nmap osx tmux rsync zsh_reload)
+plugins=(
+    git
+    docker
+    docker-compose
+    gitignore
+    nmap
+    osx
+    tmux
+    rsync
+    extract
+    jsontools
+    autojump
+    # ZSH
+    zsh_reload
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+)
 
-# User configuration
+# Start autojump
+[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
+
+### User configuration ###
 
 # export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # You may need to manually set your language environment
 #export LC_ALL=en_US.UTF-8
@@ -131,8 +150,8 @@ export LANG=zh_TW.UTF-8
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#######
-# PATH
+
+### PATH ###
 export PATH="/usr/local/opt/curl/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/Users/roy4801/bin:$PATH"
@@ -151,13 +170,15 @@ export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
-export HOMEBREW_GITHUB_API_TOKEN="8ecddd6358720c595b041736ac04869a632a777b"
+export HOMEBREW_GITHUB_API_TOKEN="8dde3c840e80fd06abba8fbfb0123aa1b4255434"
 export VITASDK=/usr/local/vitasdk
 export PATH=$VITASDK/bin:$PATH 	   # add vitasdk tool to $PATH
 export PATH="/Applications/Wine Stable.app/Contents/Resources/start/bin:/Applications/Wine Stable.app/Contents/Resources/wine/bin:$PATH"
 
-# User settings
+### User settings ###
 alias py="python3"
+alias py2="python"
+alias py3="python3"
 alias pip="pip3"
 alias finder="open -a 'Finder'"
 alias macdown="open -a 'MacDown'"
@@ -169,26 +190,18 @@ alias udemy-dl="py /Users/roy4801/github/udemy-dl/udemy-dl.py -u a82611141@gmail
 alias pixiv-dl=""
 alias rsync=/usr/local/Cellar/rsync/3.1.3_1/bin/rsync --iconv=utf-8-mac,utf-8
 
-function imgup()
-{
-	imgur-uploader $1
-	# rm -f $1
-
-	# if [ "$2" == "" ]; then
-	# 	imgur-uploader $1
-	# else
-	# 	imgur-uploader $2
-	# 	if [ "$2" == "-d" ]; then
-	# 		rm -f $2
-	# 	fi
-	# fi
+function imgup() {
+	imgur-uploader "$1"
+}
+function imgupd() {
+    imgup "$1"
+    rm -f "$1"
 }
 
-function burp()
-{
+function burp() {
 	pushd /Users/roy4801/Desktop/Cybersecurity/tools/BurpSuitePro-Keygen/ > /dev/null
-	./runBurp.sh &
+	/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/bin/java -jar -Xbootclasspath/p:BurpKeygen.jar -jar burpsuite_pro_v2.0.06beta.jar &
 	popd > /dev/null
 }
 
-alias ghidra="/Users/roy4801/Desktop/Cybersecurity/tools/ghidra_9.0.1/ghidraRun"
+alias ghidra="ghidraRun"
