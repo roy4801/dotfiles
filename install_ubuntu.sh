@@ -20,8 +20,4 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 # Fonts
-git clone https://github.com/ryanoasis/nerd-fonts.git nerd-fonts
-pushd nerd-fonts > /dev/null
-./install.sh
-popd > /dev/null
-
+sudo apt-get install fonts-powerline
