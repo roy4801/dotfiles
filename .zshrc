@@ -62,6 +62,9 @@ POWERLEVEL9K_TIME_BACKGROUND='white'
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
+# Uncomment the following line to disable the update prompt.
+DISABLE_UPDATE_PROMPT="true"
+
 # Uncomment the following line to change how often to auto-update (in days).
 export UPDATE_ZSH_DAYS=1
 
@@ -122,6 +125,8 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 source ~/.config/os-specific.sh
+
+export TERM="xterm-256color"
 
 # You may need to manually set your language environment
 #export LC_ALL=en_US.UTF-8

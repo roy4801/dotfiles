@@ -25,4 +25,7 @@
 	* x https://www.nerdfonts.com/#home
 
 * vim
-	* https://github.com/VundleVim/Vundle.vim
+	* [Vundle](https://github.com/VundleVim/Vundle.vim)
+
+* tmux
+	* [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)

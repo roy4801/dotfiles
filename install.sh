@@ -7,6 +7,7 @@ OS=`uname -o`
 # macos
 if [[ "$OS" == "Darwin" ]]; then
 	. ./install_macos.sh
+	cp -f ./.config/macos.sh ~/.config/os-specific.sh
 elif [[ "$OS" == "GNU/Linux" ]]; then
 	# Ubuntu
 	[[ -n "`lsb_release -a 2>/dev/null | grep Ubuntu`" ]] \
