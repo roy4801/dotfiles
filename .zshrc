@@ -210,3 +210,6 @@ function burp() {
 }
 
 alias ghidra="ghidraRun"
+
+# added by travis gem
+[ -f /Users/roy4801/.travis/travis.sh ] && source /Users/roy4801/.travis/travis.sh
