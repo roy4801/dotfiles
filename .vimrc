@@ -15,6 +15,7 @@ Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 " Language
 Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'zxqfl/tabnine-vim'
 
 " Color
 Plugin 'erichdongubler/vim-sublime-monokai'
@@ -58,6 +59,12 @@ set showtabline=2 " Always display the tabline, even if there is only one tab
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 " 
 let g:minBufExplForceSyntaxEnable = 1
+
+" python
+if has('vim')
+  let g:python_host_prog  = '/usr/local/bin/python2'
+  let g:python3_host_prog = '/usr/local/bin/python3'
+endif
 
 " 
 syntax on

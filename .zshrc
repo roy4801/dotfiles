@@ -203,10 +203,20 @@ function imgupd() {
     rm -f "$1"
 }
 
+function pwnbox() {
+    pushd /Users/roy4801/Desktop/Cybersecurity/pwn/env/vagrant &> /dev/null
+    [[ "$1" == "up" ]] && vagrant up
+    vagrant ssh
+}
+
 function burp() {
 	pushd /Users/roy4801/Desktop/Cybersecurity/tools/BurpSuitePro-Keygen/ > /dev/null
 	/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/bin/java -jar -Xbootclasspath/p:BurpKeygen.jar -jar burpsuite_pro_v2.0.06beta.jar &
 	popd > /dev/null
+}
+
+function togif() {
+    ffmpeg -i $1 -pix_fmt rgb24 $1.gif
 }
 
 alias ghidra="ghidraRun"
