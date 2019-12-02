@@ -12,6 +12,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Interface
 Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'scrooloose/nerdtree'
 
 " Language
 Plugin 'octol/vim-cpp-enhanced-highlight'
