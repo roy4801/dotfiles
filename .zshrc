@@ -181,6 +181,11 @@ export VITASDK=/usr/local/vitasdk
 export PATH=$VITASDK/bin:$PATH 	   # add vitasdk tool to $PATH
 
 ### User settings ###
+alias ll='ls -lhF'
+alias lla='ls -alhF'
+alias la='ls -Ah'
+alias l='ls -CFh'
+
 alias py="python3"
 alias py2="python"
 alias py3="python3"
@@ -204,15 +209,50 @@ function imgupd() {
 }
 
 function pwnbox() {
-    pushd /Users/roy4801/Desktop/Cybersecurity/pwn/env/vagrant &> /dev/null
-    [[ "$1" == "up" ]] && vagrant up
-    vagrant ssh
+    help_msg=$(cat <<'END_HEREDOC'
+Usage: pwnbox <commands> <path>
+    up c <path>    Create a pwnbox (default path '.')
+    down            Destroy a pwnbox
+    conn            Connect to the pwnbox
+END_HEREDOC
+)
+
+    [[ -z "$1" || "$1" == "-h" || "$1" == "--help" || "$2" == "-h" || "$2" == "--help" || "$3" == "-h" || "$3" == "--help" ]] && echo $help_msg && return 1
+    [[ "`where docker`" == "docker not found" ]] && echo "Plz install docker" && return 1
+
+    case "$1" in
+        u*)
+            [[ "$2" == "c" || "$2" == "conn" ]] && conn_flag=1 || conn_flag=0
+            [[ $conn_flag -eq 1 ]] && docker_mount=$(pwd)/${3} || docker_mount=$(pwd)/${2}
+            echo $docker_mount
+            docker run -d \
+                --rm  \
+                -h "pwn_box" \
+                --name "pwn_box" \
+                -v ${docker_mount}:/ctf/work \
+                -p 23946:23946 \
+                --cap-add=SYS_PTRACE \
+                skysider/pwndocker
+            [[ $conn_flag -eq 1 ]] && docker exec -it pwn_box /bin/bash
+        ;;
+        d*)
+            docker kill pwn_box
+        ;;
+        c*)
+            docker exec -it pwn_box /bin/bash
+        ;;
+        *)
+            echo $help_msg
+        ;;
+    esac
 }
 
 function burp() {
+    [ ! `uname | grep Darwin` ] && echo "You are not using mac" && return 1
 	pushd /Users/roy4801/Desktop/Cybersecurity/tools/BurpSuitePro-Keygen/ > /dev/null
 	/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/bin/java -jar -Xbootclasspath/p:BurpKeygen.jar -jar burpsuite_pro_v2.0.06beta.jar &
 	popd > /dev/null
+    return 0
 }
 
 function togif() {

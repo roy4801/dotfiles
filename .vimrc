@@ -16,7 +16,7 @@ Plugin 'scrooloose/nerdtree'
 
 " Language
 Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'zxqfl/tabnine-vim'
+" Plugin 'zxqfl/tabnine-vim'
 
 " Color
 Plugin 'erichdongubler/vim-sublime-monokai'
