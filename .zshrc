@@ -129,10 +129,10 @@ source ~/.config/os-specific.sh
 export TERM="xterm-256color"
 
 # You may need to manually set your language environment
-#export LC_ALL=en_US.UTF-8
-#export LANG=en_US.UTF-8
-export LC_ALL=zh_TW.UTF-8
-export LANG=zh_TW.UTF-8
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+#export LC_ALL=zh_TW.UTF-8
+#export LANG=zh_TW.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -165,7 +165,8 @@ export PATH="/Users/roy4801/bin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 #
-
+export PATH="/Applications/Wine Stable.app/Contents/Resources/start/bin:/Applications/Wine Stable.app/Contents/Resources/wine/bin:$PATH"
+#
 # Less Colors for Man Pages
 export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
 export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
@@ -178,7 +179,6 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 export HOMEBREW_GITHUB_API_TOKEN="8dde3c840e80fd06abba8fbfb0123aa1b4255434"
 export VITASDK=/usr/local/vitasdk
 export PATH=$VITASDK/bin:$PATH 	   # add vitasdk tool to $PATH
-export PATH="/Applications/Wine Stable.app/Contents/Resources/start/bin:/Applications/Wine Stable.app/Contents/Resources/wine/bin:$PATH"
 
 ### User settings ###
 alias py="python3"
@@ -223,3 +223,6 @@ alias ghidra="ghidraRun"
 
 # added by travis gem
 [ -f /Users/roy4801/.travis/travis.sh ] && source /Users/roy4801/.travis/travis.sh
+
+# pyenv
+eval "$(pyenv init -)"
