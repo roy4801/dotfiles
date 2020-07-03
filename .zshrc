@@ -264,9 +264,6 @@ alias ghidra="ghidraRun"
 # added by travis gem
 [ -f /Users/roy4801/.travis/travis.sh ] && source /Users/roy4801/.travis/travis.sh
 
-# pyenv
-eval "$(pyenv init -)"
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
