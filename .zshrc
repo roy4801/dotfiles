@@ -259,6 +259,11 @@ function togif() {
     ffmpeg -i $1 -pix_fmt rgb24 $1.gif
 }
 
+function uva() {
+    wget --no-check-certificate -P /tmp https://onlinejudge.org/external/$1/$2.pdf
+    open $2.pdf
+}
+
 alias ghidra="ghidraRun"
 
 # added by travis gem
