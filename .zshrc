@@ -198,7 +198,8 @@ alias hopper="'/Applications/Hopper Disassembler v4.app/Contents/MacOS/hopper'"
 
 alias udemy-dl="py /Users/roy4801/github/udemy-dl/udemy-dl.py -u a82611141@gmail.com -p s82611141"
 alias pixiv-dl=""
-alias rsync=/usr/local/Cellar/rsync/3.1.3_1/bin/rsync --iconv=utf-8-mac,utf-8
+alias rsync="rsync --exclude '*.DS_Store' --iconv=utf-8-mac,utf-8"
+alias rcp="rsync -avzh --exclude '*.DS_Store' --iconv=utf-8-mac,utf-8"
 
 function imgup() {
 	imgur-uploader "$1"
