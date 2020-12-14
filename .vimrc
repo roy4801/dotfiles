@@ -17,9 +17,9 @@ Plugin 'scrooloose/nerdtree'
 " Language
 Plugin 'octol/vim-cpp-enhanced-highlight'
 
-Plugin 'WolfgangMehner/c-support'         " c.vim
-let g:C_UserTool_cmake='yes'
-let g:C_UserTool_doxygen='yes'
+"Plugin 'WolfgangMehner/c-support'         " c.vim
+"let g:C_UserTool_cmake='yes'
+"let g:C_UserTool_doxygen='yes'
 
 
 " Plugin 'zxqfl/tabnine-vim'

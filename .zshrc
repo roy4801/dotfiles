@@ -265,6 +265,14 @@ function uva() {
     open /tmp/$2.pdf
 }
 
+function cpf() {
+	if [[ "$2" != "" ]]; then
+		FONT_SIZE=$2
+	fi
+		FONT_SIZE=20
+	highlight -O rtf $1 -K $FONT_SIZE -k Source_Code_Pro --style nightshimmer | pbcopy
+}
+
 alias ghidra="ghidraRun"
 
 # added by travis gem
