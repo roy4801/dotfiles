@@ -1,3 +1,5 @@
+zmodload zsh/zprof
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -115,6 +117,20 @@ plugins=(
     zsh-syntax-highlighting
 )
 
+# zstyle ':bracketed-paste-magic' active-widgets '.self-*'
+
+### Fix slowness of pastes with zsh-syntax-highlighting.zsh
+pasteinit() {
+  OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
+  zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
+}
+
+pastefinish() {
+  zle -N self-insert $OLD_SELF_INSERT
+}
+zstyle :bracketed-paste-magic paste-init pasteinit
+zstyle :bracketed-paste-magic paste-finish pastefinish
+
 # Start autojump
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
 
@@ -179,6 +195,7 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 export HOMEBREW_GITHUB_API_TOKEN="8dde3c840e80fd06abba8fbfb0123aa1b4255434"
 export VITASDK=/usr/local/vitasdk
 export PATH=$VITASDK/bin:$PATH 	   # add vitasdk tool to $PATH
+export OJ_BLOG_GITHUB_TOKEN="cd2115f30c228b0eb8b16e5964206b4c5367ac17"
 
 ### User settings ###
 alias ll='ls -lhF'
@@ -268,9 +285,10 @@ function uva() {
 function cpf() {
 	if [[ "$2" != "" ]]; then
 		FONT_SIZE=$2
-	fi
+    else
 		FONT_SIZE=20
-	highlight -O rtf $1 -K $FONT_SIZE -k Source_Code_Pro --style nightshimmer | pbcopy
+	fi
+	highlight -O rtf $1 -K $FONT_SIZE -k "Source Code Pro for Powerline" --style nightshimmer | pbcopy
 }
 
 alias ghidra="ghidraRun"
@@ -278,6 +296,9 @@ alias ghidra="ghidraRun"
 # added by travis gem
 [ -f /Users/roy4801/.travis/travis.sh ] && source /Users/roy4801/.travis/travis.sh
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Created by `userpath` on 2021-02-07 02:03:54
+export PATH="$PATH:/Users/roy4801/.local/bin"
