@@ -1,5 +1,7 @@
 zmodload zsh/zprof
 
+source ~/.zprofile
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -192,7 +194,7 @@ export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
-export HOMEBREW_GITHUB_API_TOKEN="8dde3c840e80fd06abba8fbfb0123aa1b4255434"
+export HOMEBREW_GITHUB_API_TOKEN="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"
 export VITASDK=/usr/local/vitasdk
 export PATH=$VITASDK/bin:$PATH 	   # add vitasdk tool to $PATH
 export OJ_BLOG_GITHUB_TOKEN="cd2115f30c228b0eb8b16e5964206b4c5367ac17"
@@ -212,11 +214,13 @@ alias macdown="open -a 'MacDown'"
 alias ida="open -a ida.app"
 alias ida64="open -a ida64.app"
 alias hopper="'/Applications/Hopper Disassembler v4.app/Contents/MacOS/hopper'"
+alias fixntfs="diskutil eject /dev/disk2 && sudo ezntfs all"
 
 alias udemy-dl="py /Users/roy4801/github/udemy-dl/udemy-dl.py -u a82611141@gmail.com -p s82611141"
 alias pixiv-dl=""
 alias rsync="rsync --exclude '*.DS_Store' --iconv=utf-8-mac,utf-8"
 alias rcp="rsync -avzh --exclude '*.DS_Store' --iconv=utf-8-mac,utf-8"
+
 
 function imgup() {
 	imgur-uploader "$1"
