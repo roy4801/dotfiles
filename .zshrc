@@ -114,7 +114,6 @@ plugins=(
     jsontools
     autojump
     # ZSH
-    zsh_reload
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
@@ -194,7 +193,7 @@ export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
-export HOMEBREW_GITHUB_API_TOKEN="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"
+export HOMEBREW_GITHUB_API_TOKEN="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"
 export VITASDK=/usr/local/vitasdk
 export PATH=$VITASDK/bin:$PATH 	   # add vitasdk tool to $PATH
 export OJ_BLOG_GITHUB_TOKEN="cd2115f30c228b0eb8b16e5964206b4c5367ac17"
@@ -221,6 +220,7 @@ alias pixiv-dl=""
 alias rsync="rsync --exclude '*.DS_Store' --iconv=utf-8-mac,utf-8"
 alias rcp="rsync -avzh --exclude '*.DS_Store' --iconv=utf-8-mac,utf-8"
 
+alias src="omz reload" # remove zsh-reload
 
 function imgup() {
 	imgur-uploader "$1"
