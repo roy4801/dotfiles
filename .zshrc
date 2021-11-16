@@ -107,7 +107,7 @@ plugins=(
     docker-compose
     gitignore
     nmap
-    osx
+    macos
     tmux
     rsync
     extract
@@ -193,7 +193,7 @@ export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
-export HOMEBREW_GITHUB_API_TOKEN="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"
+export HOMEBREW_GITHUB_API_TOKEN="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"
 export VITASDK=/usr/local/vitasdk
 export PATH=$VITASDK/bin:$PATH 	   # add vitasdk tool to $PATH
 export OJ_BLOG_GITHUB_TOKEN="cd2115f30c228b0eb8b16e5964206b4c5367ac17"
