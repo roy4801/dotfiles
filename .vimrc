@@ -15,26 +15,22 @@ Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'scrooloose/nerdtree'
 
 " Language
-Plugin 'octol/vim-cpp-enhanced-highlight'
+"Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'bfrg/vim-cpp-modern'
 
 "Plugin 'WolfgangMehner/c-support'         " c.vim
 "let g:C_UserTool_cmake='yes'
 "let g:C_UserTool_doxygen='yes'
 
+Plugin 'ycm-core/YouCompleteMe'
 
 " Plugin 'zxqfl/tabnine-vim'
 
 " Color
 Plugin 'erichdongubler/vim-sublime-monokai'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
 Plugin 'wincent/command-t'
+Plugin 'tpope/vim-fugitive'
 " git repos on your local machine (i.e. when working on your own plugin)
 "Plugin 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
@@ -96,3 +92,4 @@ vmap <C-c> "*y
 " search for visually hightlighted text
 vnoremap <c-f> y<ESC>/<c-r>"<CR>
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+nmap <ESC> :noh<CR>
