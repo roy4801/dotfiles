@@ -16,7 +16,9 @@ wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - 
 ## powerline9k
 # git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 
+# powerline10k
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+cp .p10k.zsh ~
 
 ## oh-my-zsh plugins
 sudo apt install -y autojump
@@ -25,3 +27,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 # Fonts
 # sudo apt-get install fonts-powerline
+
+# software
+bash ./soft/install_vim.sh
+
