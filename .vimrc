@@ -24,6 +24,11 @@ Plugin 'bfrg/vim-cpp-modern'
 
 Plugin 'ycm-core/YouCompleteMe'
 
+Plugin 'skywind3000/asyncrun.vim'
+" {
+let g:asyncrun_open = 6
+" }
+
 " Plugin 'zxqfl/tabnine-vim'
 
 " Color
@@ -79,6 +84,8 @@ set nu ts=4 sw=4 sts=4 et ai si cin hls ru t_Co=256
 set mouse=a bs=2 ci nocp ar fencs=utf-8
 set sm mat=0
 
+set completeopt-=preview
+
 " Key mappings "
 imap {<CR>  {<CR>}<Esc>O
 
@@ -93,3 +100,14 @@ vmap <C-c> "*y
 vnoremap <c-f> y<ESC>/<c-r>"<CR>
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 nmap <ESC> :noh<CR>
+
+function! CompileCpp()
+    execute ':AsyncRun -save=1 g++ -std=c++20 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)"'
+endfunction
+function! RunCpp()
+    execute ':AsyncRun mode=bang "$(VIM_FILEDIR)/$(VIM_FILENOEXT)"'
+endfunction
+nnoremap <C-b> :call CompileCpp()<CR>
+execute "set <M-r>=\er"
+nnoremap <silent> <M-r> :call RunCpp()<CR>
+
