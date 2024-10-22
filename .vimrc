@@ -28,6 +28,10 @@ Plugin 'skywind3000/asyncrun.vim'
 " {
 let g:asyncrun_open = 6
 " }
+Plugin 'skywind3000/asynctasks.vim'
+" {
+ 
+" }
 
 " Plugin 'zxqfl/tabnine-vim'
 
