@@ -115,3 +115,9 @@ nnoremap <C-b> :call CompileCpp()<CR>
 execute "set <M-r>=\er"
 nnoremap <silent> <M-r> :call RunCpp()<CR>
 
+" fastsave
+nnoremap <C-S> :w<cr>
+inoremap <C-S> <ESC>:w<cr>li
+
+
+
